@@ -1,3 +1,4 @@
 .env
 .vscode/
 tweets.json
+bearer_token.txt

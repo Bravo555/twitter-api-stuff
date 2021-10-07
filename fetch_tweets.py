@@ -4,7 +4,9 @@ import os
 import requests
 import json
 
-BEARER_TOKEN = os.environ['BEARER_TOKEN']
+f = open('bearer_token.txt')
+BEARER_TOKEN = f.read().strip('\n')
+f.close()
 
 names = [
     'AgaScigaj',
