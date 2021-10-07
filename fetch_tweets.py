@@ -28,8 +28,9 @@ ids = list(map(lambda user: user['id'], json.loads(res.text)['data']))
 print(ids)
 
 
-tweets = list(map(lambda id: json.loads(requests.get(f'https://api.twitter.com/2/users/{id}/tweets', headers={
-    'Authorization': f'Bearer {BEARER_TOKEN}'}).text), ids))
+tweets = list(map(lambda id: json.loads(
+    requests.get(f'https://api.twitter.com/2/users/{id}/tweets?tweet.fields=public_metrics',
+                 headers={'Authorization': f'Bearer {BEARER_TOKEN}'}).text), ids))
 
 print(tweets)
 f = open('tweets.json', 'w')
